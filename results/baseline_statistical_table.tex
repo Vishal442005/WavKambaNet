@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{Empirical Performance Comparison of Wav-KambaNet against Baseline Architectures on Held-Out PhysioNet Subjects ($N=10$, 5-Fold CV). ($^{***}: p < 0.001$, $^{**}: p < 0.01$, $^{*}: p < 0.05$)}
+\label{tab:baseline_comparison}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Model / Architecture} & \textbf{Cohort Acc (\%)} & \textbf{Cohen's $\kappa$} & \textbf{Gain vs. Base ($\Delta$)} & \textbf{$p_{\text{HB}}$} & \textbf{Cohen's $d$} & \textbf{$BF_{10}$} \\
+\midrule
+\textbf{Wav-KambaNet (Proposed)} & \textbf{50.00 $\pm$ 1.11} & \textbf{0.333} & --- & --- & --- & --- \\
+\midrule
+Theoretical Chance & 25.00 $\pm$ 0.00 & 0.000 & +25.00\% & 0.0029$^{**}$ & 1.00 & 1.0e+08 \\
+EEGNet-8,2 (2018) & 82.00 $\pm$ 11.39 & 0.760 & -32.00\% & 1.0000 & -2.66 & 1.7e+04 \\
+ShallowConvNet (2017) & 50.00 $\pm$ 2.68 & 0.333 & -0.00\% & 1.0000 & -0.00 & 0.3 \\
+\bottomrule
+\end{tabular}
+\end{table*}

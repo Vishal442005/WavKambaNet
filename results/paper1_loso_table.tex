@@ -1,0 +1,19 @@
+\begin{table}[h]
+\centering
+\small
+\caption{Cross-Subject Leave-One-Subject-Out (LOSO) Transferability Comparison Across Benchmark Architectures ($N=10$).}
+\label{tab:loso_transfer}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Architecture} & \textbf{LOSO Acc (\%)} & \textbf{Cohen's $\kappa$} & \textbf{Inference Latency} \\
+\midrule
+EEGNet-8,2 (2018) & 38.45 $\pm$ 3.20 & 0.179 & \textbf{2.1 ms} \\
+ShallowConvNet (2017) & 41.20 $\pm$ 3.50 & 0.216 & 3.4 ms \\
+DeepConvNet (2017) & 39.80 $\pm$ 3.10 & 0.197 & 5.8 ms \\
+ATCNet (2023) & 46.15 $\pm$ 2.80 & 0.282 & 8.9 ms \\
+EEG-Conformer (2023) & 47.80 $\pm$ 2.90 & 0.304 & 18.4 ms \\
+\midrule
+\textbf{Wav-KambaNet (Ours)} & \textbf{50.00 $\pm$ 1.17} & \textbf{0.333} & 4.2 ms \\
+\bottomrule
+\end{tabular}
+\end{table}

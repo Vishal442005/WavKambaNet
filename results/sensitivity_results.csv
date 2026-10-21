@@ -1,0 +1,19 @@
+Category,Parameter,Configuration,Mean Accuracy (%),Std (%),Wilcoxon p-val,Cohen's d,Bayes Factor BF10,Significance
+Wavelet Basis,Wavelet Type,Morlet (Default),87.83,2.04,1.0000,0.000,1.000,-
+Wavelet Basis,Wavelet Type,Mexican Hat,85.84,1.93,3.9062e-03,-5.967,6065232.891,**
+Wavelet Basis,Wavelet Type,B-Spline,84.46,1.95,3.9062e-03,-8.665,100000000.000,**
+Wavelet Filters (K),K Filters,K = 8,83.93,2.24,3.9062e-03,-14.241,100000000.000,**
+Wavelet Filters (K),K Filters,K = 16 (Default),87.83,2.04,1.0000,0.000,1.000,-
+Wavelet Filters (K),K Filters,K = 32,87.42,2.29,1.1719e-02,-1.381,57.896,*
+Chebyshev Order,K_cheb,K_cheb = 1,83.16,2.31,3.9062e-03,-15.221,100000000.000,**
+Chebyshev Order,K_cheb,K_cheb = 2,85.94,2.24,3.9062e-03,-8.796,100000000.000,**
+Chebyshev Order,K_cheb,K_cheb = 3 (Default),87.83,2.04,1.0000,0.000,1.000,-
+Chebyshev Order,K_cheb,K_cheb = 5,86.79,2.23,3.9062e-03,-4.546,567928.493,**
+Mamba State Dim,d_state,d_state = 8,84.63,2.29,3.9062e-03,-11.685,100000000.000,**
+Mamba State Dim,d_state,d_state = 16 (Default),87.83,2.04,1.0000,0.000,1.000,-
+Mamba State Dim,d_state,d_state = 32,87.96,2.25,2.5781e-01,0.448,0.833,n.s.
+Mamba State Dim,d_state,d_state = 64,86.56,2.29,3.9062e-03,-4.158,263547.019,**
+Learning Rate,LR (eta),eta = 1e-4,83.53,2.29,3.9062e-03,-15.701,100000000.000,**
+Learning Rate,LR (eta),eta = 5e-4,86.99,2.22,3.9062e-03,-3.676,92405.179,**
+Learning Rate,LR (eta),eta = 1e-3 (Default),87.83,2.04,1.0000,0.000,1.000,-
+Learning Rate,LR (eta),eta = 5e-3,82.21,2.34,3.9062e-03,-15.938,100000000.000,**

@@ -1,0 +1,7 @@
+Ablation Condition,Mean Acc (%),Drop (Δ),p-value (Wilcoxon),Significant (p<0.05),Effect Size,BF10
+A2: w/o Wav-KAN (Standard MLP),81.90 ± 5.08,-3.67%,0.0020,Yes,1.00 (large),188411.3
+A3: w/o Mamba (Transformer MHSA),80.94 ± 5.37,-4.64%,0.0020,Yes,1.00 (large),70906.8
+A4: w/o Spatial Graph (Standard Conv),81.99 ± 5.05,-3.59%,0.0020,Yes,1.00 (large),63963.3
+A5: w/o Bidirectional (Forward Only),83.10 ± 4.39,-2.47%,0.0020,Yes,1.00 (large),10251.3
+A6: Mexican Hat Wavelet,84.52 ± 4.64,-1.06%,0.0020,Yes,1.00 (large),491.8
+A7: d_state = 8,83.53 ± 5.15,-2.05%,0.0020,Yes,1.00 (large),16758.4

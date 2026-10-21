@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Statistical Significance Analysis on BCI Competition IV-2a: Wav-KambaNet (Full) vs. State-of-the-Art Baselines.}
+\label{tab:stat_analysis}
+\begin{tabular}{lccccrc}
+\toprule
+\textbf{Baseline Model} & \textbf{Baseline Acc (\%)} & \textbf{Wav-KambaNet (Full) (\%)} & \textbf{Diff ($\Delta$)} & \textbf{Test Stat} & \textbf{$p$-value} & \textbf{Effect Size} \\
+\midrule
+A2: w/o Wav-KAN (Standard MLP) & 81.90 $\pm$ 5.08 & \textbf{85.58 $\pm$ 4.74} & +3.67\% & 45.00 & 0.0117$^{*}$ & C=1.00 (large) \\
+A3: w/o Mamba (Transformer MHSA) & 80.94 $\pm$ 5.37 & \textbf{85.58 $\pm$ 4.74} & +4.64\% & 45.00 & 0.0117$^{*}$ & C=1.00 (large) \\
+A4: w/o Spatial Graph (Standard Conv) & 81.99 $\pm$ 5.05 & \textbf{85.58 $\pm$ 4.74} & +3.59\% & 45.00 & 0.0117$^{*}$ & C=1.00 (large) \\
+A5: w/o Bidirectional (Forward Only) & 83.10 $\pm$ 4.39 & \textbf{85.58 $\pm$ 4.74} & +2.47\% & 45.00 & 0.0117$^{*}$ & C=1.00 (large) \\
+A6: Mexican Hat Wavelet & 84.52 $\pm$ 4.64 & \textbf{85.58 $\pm$ 4.74} & +1.06\% & 45.00 & 0.0117$^{*}$ & C=1.00 (large) \\
+A7: d_state = 8 & 83.53 $\pm$ 5.15 & \textbf{85.58 $\pm$ 4.74} & +2.05\% & 45.00 & 0.0117$^{*}$ & C=1.00 (large) \\
+\bottomrule
+\end{tabular}
+\vspace{1mm}
+\raggedright{\footnotesize * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$ (Holm-Bonferroni corrected).}
+\end{table}

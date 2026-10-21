@@ -1,0 +1,137 @@
+# Paper 1: Wav-KambaNet Configuration
+# =====================================
+# Independent from Paper 2. No shared results or data splits.
+
+# Paths — data is in shared parent directory but results are isolated
+data:
+  physionet_dir: "../Motor"           # Shared raw data (read-only)
+  bci_iv_2a_dir: "data/bci_iv_2a"    # Downloaded via MOABB (Paper 1 only)
+  processed_dir: "data/processed"     # Paper 1 processed data
+  cache_dir: "data/cache"
+  results_dir: "results"              # Paper 1 results ONLY
+
+# Preprocessing
+preprocessing:
+  l_freq: 0.5
+  h_freq: 45.0
+  notch_freq: 60.0
+  ref_type: "average"
+  tmin: 0.0
+  tmax: 4.0
+  baseline: null
+  ica:
+    enabled: true
+    n_components: 20
+    method: "fastica"
+  normalize: "zscore"
+  resample_freq: 250
+
+# PhysioNet-specific
+physionet:
+  imagery_runs:
+    left_right: [4, 8, 12]
+    fists_feet: [6, 10, 14]
+  events:
+    T0: "rest"
+    T1_lr: "left_fist"
+    T2_lr: "right_fist"
+    T1_ff: "both_fists"
+    T2_ff: "both_feet"
+  exclude_subjects: [88, 92, 100]
+
+# Model — Wav-KambaNet
+model:
+  name: "wav_kambanet"
+
+  # Spatial Graph Encoder
+  spatial:
+    graph_conv_type: "chebconv"
+    cheb_k: 3
+    hidden_dim: 64
+    num_layers: 2
+    dropout: 0.3
+
+  # Wav-KAN Spectral Module
+  wav_kan:
+    enabled: true                       # Set false for ablation A2
+    wavelet_type: "morlet"              # morlet | mexican_hat | bspline
+    num_wavelets: 16
+    grid_size: 5
+    spline_order: 3
+    learnable_scale: true
+    learnable_shift: true
+    hidden_dim: 64
+
+  # Bidirectional Mamba
+  mamba:
+    d_model: 64
+    d_state: 16
+    d_conv: 4
+    expand_factor: 2
+    num_layers: 4
+    bidirectional: true                 # Set false for ablation A5
+    dropout: 0.1
+    use_wavkan_projection: false        # Set false for efficient Mamba linear projection
+
+  # Classification Head
+  classifier:
+    type: "kan"                         # kan | mlp
+    kan_grid_size: 5
+    kan_spline_order: 3
+    hidden_dims: [32]
+    dropout: 0.3
+
+# Training
+training:
+  seed: 42
+  epochs: 50
+  batch_size: 8
+  early_stopping_patience: 15
+  gradient_clip_max_norm: 1.0
+
+  optimizer:
+    type: "adamw"
+    lr: 0.001
+    weight_decay: 0.01
+    betas: [0.9, 0.999]
+
+  scheduler:
+    type: "cosine_annealing_warm_restarts"
+    T_0: 50
+    T_mult: 2
+    eta_min: 0.00001
+
+  loss:
+    type: "cross_entropy"
+    label_smoothing: 0.1
+
+  drop_path_rate: 0.1
+
+# Evaluation
+evaluation_mode: "within_subject"       # within_subject | cross_subject
+
+evaluation:
+  within_subject:
+    cv_folds: 5
+    stratified: true
+  cross_subject:
+    method: "loso"
+  metrics: ["accuracy", "kappa", "f1_macro", "confusion_matrix"]
+  stats:
+    test: "wilcoxon"
+    alpha: 0.05
+
+# Ablation study flags
+ablation:
+  use_graph: true           # A4: set false to replace graph conv with standard conv
+  use_wavkan: true          # A2: set false to replace KAN with MLP
+  use_mamba: true           # A3: set false to replace Mamba with Transformer
+  bidirectional: true       # A5: set false for unidirectional only
+  wavelet_type: "morlet"    # A6: morlet | mexican_hat | bspline
+  d_state: 16              # A7: sweep {8, 16, 32, 64}
+
+# Logging
+wandb:
+  project: "paper1-wav-kambanet"
+  entity: null
+  tags: ["eeg", "motor-imagery", "mamba", "kan", "bci", "paper1"]
