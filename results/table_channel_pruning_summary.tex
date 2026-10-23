@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Wearable electrode pruning evaluation across 10 PhysioNet subjects: Performance retention ratio (PRR) and edge computational complexity trade-offs.}
+\label{tab:channel_pruning}
+\small
+\begin{tabular}{lccccccr}
+\toprule
+\textbf{Montage Configuration} & \textbf{Ch} & \textbf{Accuracy (\%)} & \textbf{Cohen's $\kappa$} & \textbf{Retention (PRR)} & \textbf{FLOPs} & \textbf{$p$-value} & \textbf{BF$_{10}$} \\
+\midrule
+\textbf{64-Channel (Full 10-10)} & 64 & \textbf{50.00 ± 0.86} & 0.333 & 100.0% & 164.2M & — & — \\
+32-Channel (Clinical) & 32 & 49.45 ± 0.87 & 0.326 & 98.9% & 98.4M & 0.0000** & 100000000.0 \\
+16-Channel (Sensorimotor) & 16 & 48.34 ± 0.88 & 0.311 & 96.7% & 56.1M & 0.0000** & 100000000.0 \\
+8-Channel (Wearable OpenBCI) & 8 & 46.86 ± 0.88 & 0.291 & 93.7% & 32.8M & 0.0000** & 100000000.0 \\
+3-Channel (Vertex C3-Cz-C4) & 3 & 42.16 ± 0.88 & 0.229 & 84.3% & 18.5M & 0.0000** & 100000000.0 \\
+\bottomrule
+\end{tabular}
+\end{table*}

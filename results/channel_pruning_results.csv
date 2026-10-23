@@ -1,0 +1,6 @@
+Montage,Channels,Hardware Equivalent,Accuracy (%),Mean_Acc,Std_Acc,Kappa,Retention (%),FLOPs (M),Params (K),p-value,Cohen's d,BF10
+64-Channel (Full 10-10),64,Research Cap (Biosemi/BrainProducts),50.00 ± 0.86,50.0,0.859802302858046,0.333,100.0%,164.2,385.4,—,—,—
+32-Channel (Clinical),32,Clinical Diagnostic Headset,49.45 ± 0.87,49.455,0.8744626921715992,0.326,98.9%,98.4,372.1,0.0000**,9.10,100000000.0
+16-Channel (Sensorimotor),16,Targeted Motor Prosthetic Cap,48.34 ± 0.88,48.335,0.8818078021882088,0.311,96.7%,56.1,364.5,0.0000**,22.28,100000000.0
+8-Channel (Wearable OpenBCI),8,Portable Consumer/Dry Headset,46.86 ± 0.88,46.855000000000004,0.8778866669451129,0.291,93.7%,32.8,359.8,0.0000**,31.06,100000000.0
+3-Channel (Vertex C3-Cz-C4),3,Ultra-Sparse Wireless Strip,42.16 ± 0.88,42.160000000000004,0.8785556328429055,0.229,84.3%,18.5,356.2,0.0000**,72.93,100000000.0

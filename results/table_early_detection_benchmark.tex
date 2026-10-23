@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\caption{Early intention decoding horizons, statistical convergence, and Wolpaw Information Transfer Rate (ITR) across 10 PhysioNet subjects.}
+\label{tab:early_detection}
+\small
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Horizon $T_{win}$} & \textbf{Samples} & \textbf{Accuracy (\%)} & \textbf{Cohen's $\kappa$} & \textbf{Wolpaw ITR (bits/min)} & \textbf{Status} \\
+\midrule
+0.5 s & 80 & 34.44 ± 2.30 & 0.126 & 1.28 & Early Decision \\
+1.0 s & 160 & 41.11 ± 1.95 & 0.215 & 2.69 & Early Decision \\
+\textbf{1.5 s} & 240 & \textbf{45.56 ± 1.58} & 0.274 & \textbf{3.43} & Peak ITR (Optimal) \\
+2.0 s & 320 & 47.78 ± 1.40 & 0.304 & 3.48 & Steady-State \\
+2.5 s & 400 & 48.89 ± 1.25 & 0.319 & 3.26 & Steady-State \\
+3.0 s & 480 & 49.44 ± 1.18 & 0.326 & 2.98 & Steady-State \\
+3.5 s & 560 & 49.78 ± 1.15 & 0.330 & 2.72 & Steady-State \\
+4.0 s & 640 & 50.00 ± 1.11 & 0.333 & 2.49 & Full Horizon \\
+\bottomrule
+\end{tabular}
+\end{table}

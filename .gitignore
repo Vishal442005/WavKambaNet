@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch Lightning logs and checkpoints
+lightning_logs/
+logs/
+*.log
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE files
+.vscode/
+.idea/
+
+# Large dataset raw files
+data/
+*.edf
+*.fif
+*.mat
+
+# Model weights exceeding GitHub 100MB limit
+*.ckpt
+*.pt
+*.pth
+
+# Research papers & documents (Strictly excluded)
+*.docx
+*.doc
+*.pdf
+manuscript/*.pdf
+manuscript/*.docx
+manuscript/*.doc
